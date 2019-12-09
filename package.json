@@ -1,0 +1,38 @@
+{
+  "name": "nuxt2-spa",
+  "version": "1.0.0",
+  "description": "My kickass Nuxt.js project",
+  "author": "kehefu",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development HOST=0.0.0.0 PORT=5000 nodemon server/index.js --watch server",
+    "build": "nuxt build",
+    "start": "cross-env NODE_ENV=production HOST=0.0.0.0 PORT=5000 node server/index.js",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint",
+    "task": "node server/excel/task.js",
+    "latlng": "node server/excel/getLatLng.js"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.0.0",
+    "@nuxtjs/bulma": "^1.2.0",
+    "assert": "^1.4.1",
+    "body-parser": "^1.18.3",
+    "cross-env": "^5.2.0",
+    "express": "^4.16.3",
+    "mongodb": "^3.1.8",
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^5.0.1",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-prettier": "2.6.2",
+    "eslint-plugin-vue": "^4.0.0",
+    "node-xlsx": "^0.12.1",
+    "nodemon": "^1.11.0",
+    "prettier": "1.14.3"
+  }
+}
