@@ -5,6 +5,10 @@ module.exports = {
 
   /*
   ** Headers of the page
+  <script async
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap">
+</script>
+ 原地址：https://maps.googleapis.com/maps/api/js?key=AIzaSyB8rhcXRSHGnvpUF4-ZbWGQpVUvDsMemQU&libraries=visualization
   */
   head: {
     title: pkg.name,
@@ -16,7 +20,7 @@ module.exports = {
     script: [
       {
         src:
-          'https://maps.googleapis.com/maps/api/js?key=AIzaSyB8rhcXRSHGnvpUF4-ZbWGQpVUvDsMemQU&libraries=visualization'
+          'https://maps.googleapis.com/maps/api/js?key=AIzaSyB8rhcXRSHGnvpUF4-ZbWGQpVUvDsMemQU&libraries=places'
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
@@ -76,6 +80,12 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
+      }
+    },
+    babel: {
+      presets({ isServer }) {
+        const targets = isServer ? { node: '10' } : { ie: '11' }
+        return [[require.resolve('@nuxt/babel-preset-app'), { targets }]]
       }
     }
   }
