@@ -63,7 +63,8 @@ export default {
       })
       // 地图平移或缩放事件
       this.map.addListener('idle', e => {
-        console.log('结束')
+        // console.log('结束')
+        // 获取地图边界
         const bounds = this.map.getBounds()
         const ne = bounds.getNorthEast() // LatLng of the north-east corner
         const sw = bounds.getSouthWest() // LatLng of the south-west corder
@@ -72,6 +73,7 @@ export default {
           lng1 = sw.lng(),
           lng2 = ne.lng()
         // console.log(lat1, lat2, '=====mapb', lng1, lng2)
+        // 获取marker的经纬度
         const markB = this.marker.getPosition()
         if (!markB) return
         const lat = markB.lat(),
@@ -94,7 +96,7 @@ export default {
     },
     // 初始化标记和监听
     initMark() {
-      var locationMarker = {
+      const locationMarker = {
         path:
           'M22 10.5c0 .895-.13 1.76-.35 2.588C20.025 20.723 13.137 28.032 11 28 9.05 28 3.2 21.28.926 14.71.334 13.42 0 11.997 0 10.5c0-.104.013-.206.017-.31C.014 10.117 0 10.04 0 9.967c-.005-.67.065-1.112.194-1.398C1.144 3.692 5.617 0 11 0c5.416 0 9.906 3.74 10.82 8.657.112.29.18.696.18 1.31 0 .083-.013.167-.015.25.003.095.015.188.015.283zM11 5.833c-2.705 0-4.898 2.09-4.898 4.667S8.295 15.167 11 15.167s4.898-2.09 4.898-4.667c0-2.578-2.193-4.667-4.898-4.667z',
         fillColor: 'blue',
